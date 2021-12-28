@@ -1,0 +1,29 @@
+<div class="main-header">
+  <div class="form-input">
+    <%= form_with(url: search_texts_path, local: true, method: :get, class: "search-form") do |form| %>
+    <%= form.text_field :keyword, placeholder: "文章を検索する", class: "form-search" %>
+    <%= form.submit "検索", class: "search-btn" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="main-form">
+    <div class="sentence">
+      <% @texts.each do |text| %>
+        <div class="english">
+          <div class="english-text">
+          <a href="#"><%= text.sentence %></a>
+          </div>
+        </div>
+     <div class="japanese">
+        <div class="japanese-text">
+        <%= text.translate %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+</div>
+
+
+<div class="footer">
+</div>

@@ -1,0 +1,67 @@
+<div class="new-wrapper">
+  <div class="main-title">
+    <h1 id="js-copytext"><%= @text.sentence %></h1>
+  <button type="button" id="js-copybtn">Copy</button>
+  </div>
+  <div class='text-registration'>
+    <%=form_with model: @text, local: true do |f|%>
+     
+      <div class='text-registration__field'>
+        <div class='text-registration__field--left'>
+          <%= f.label :和訳, class: 'text-registration__label'%>
+        </div>
+        <div class='text-registration__field--right'>
+        
+          <%= @text.translate %>
+        </div>
+      </div>
+
+  <div class='text-registration__field'>
+        <div class='text-registration__field--left'>
+          <%= f.label :補足, class: 'text-registration__label'%>
+        </div>
+        <div class='text-registration__field--right'>
+          <%= @text.remarks %>
+        </div>
+      </div>
+
+  <div class='text-registration__field'>
+        <div class='text-registration__field--left'>
+          <%= f.label :タグ, class: 'text-registration__label'%>
+        </div>
+        <div class='tag-list'>
+          <% @text.tags.each do |tag| %>
+          <%= tag.tag_name %>
+          <% end %>
+
+        </div>
+      </div>
+
+   <div class='text-registration__field'>
+        <div class='text-registration__field--left'>
+          <%= f.label :文章タイプ, class: 'text-registration__label'%>
+        </div>
+        <div class='text-registration__field--right'>
+          <%= @text.type.name %>
+        </div>
+      </div>
+
+
+
+      <div class='text-registration__field'>
+        <div class='text-registration__field--left'></div>
+         <div class='btn-field'>
+        <div class='text-registration__field--right'>
+          <%= link_to "編集",  edit_text_path(@text.id), method: :get, class: 'text-registration__action-btn' %>
+        </div>
+        <div class='text-registration__field--right'>
+          <%= link_to "削除", text_path(@text.id), method: :delete, class: 'text-registration__action-btn'%>
+        </div>
+         <div class='text-registration__field--right'>
+          <%= link_to "戻る", root_path, class: 'text-registration__action-btn'%>
+        </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+</div>

@@ -1,0 +1,21 @@
+<div class="side-header">
+  <div class="header-name">
+    <a href="#">Tom</a>
+  </div>
+   <div class="delete-button">
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'%>
+  </div>
+</div>
+
+<div class="side-form">
+  <div class="side-menu">
+    <ul class="menu-bar">
+    <li><%= link_to 'ホーム', root_path, method: :GET %></li>
+      <li><%= link_to '文章を登録', new_text_path, method: :GET %></li>
+      <li><%# @tag_lists.each do |list|%></li>
+        
+        <%#= link_to "", list.tag_name, texts_path(tag_id: list.id), class: 'tag_list' %>
+      
+    </ul>
+  </div>
+</div>

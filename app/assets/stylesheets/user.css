@@ -1,0 +1,47 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  text-decoration: none;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  padding-top: 150px;
+  font-weight: 400;
+  font-size: 28px;
+}
+
+.box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 350px;
+  height: 390px;
+  margin: 30px auto 0;
+  
+}
+
+.box-inner {
+  padding: 20px 26px;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  padding-bottom: 4px;
+  color: #111111;
+}
+
+.field {
+  margin-top: 10px;
+}
+
+.actions {
+  margin-top: 10px;
+}

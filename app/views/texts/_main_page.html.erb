@@ -1,0 +1,47 @@
+<div class="main-header">
+  <div class="form-input">
+  
+    <%= form_with(url: search_texts_path, local: true, method: :get, class: "search-form") do |form| %>
+    <%= form.text_field :keyword, placeholder: "英文・英単語で検索", class: "form-search" %>
+    <%#= form.submit "検索", class: "search-btn" %>
+    <% end %>
+  </div>
+  <%= form_tag texts_path, method: :get, class: 'boards__searchForm' do %>
+      <%= select_tag :tag_id,
+                     options_from_collection_for_select(Tag.all, :id, :tag_name, params[:tag_id]),
+                     {
+                       prompt: 'タグで絞り込み検索',
+                       onchange: 'submit(this.form);'
+                     }
+      %>
+    <% end %>
+</div>
+
+<div class="main-form">
+    <div class="sentence">
+      <% @texts.each do |text| %>
+        <div class="english">
+          <div class="english-text">
+      <%= link_to text.sentence, text_path(text.id)%>
+          </div>
+        </div>
+     <div class="japanese">
+        <div class="japanese-text">
+        <%= text.translate %>
+        <div class="text-type">
+        ＜<%= text.type.name%>＞
+        </div>
+        </div>
+      </div>
+      <% end %>
+
+    </div>
+</div>
+
+
+  
+
+
+
+<div class="footer">
+</div>
